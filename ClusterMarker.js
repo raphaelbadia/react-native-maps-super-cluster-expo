@@ -3,7 +3,7 @@
 // base libs
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Marker } from 'react-native-maps'
+import { MapView } from 'expo'
 import { Text, View, StyleSheet } from 'react-native'
 
 export default class ClusterMarker extends Component {
@@ -68,11 +68,11 @@ export default class ClusterMarker extends Component {
     const { containerStyle, textStyle } = this.props
 
     return (
-      <Marker coordinate={{ latitude, longitude }} onPress={this.onPress}>
+      <MapView.Marker coordinate={{ latitude, longitude }} onPress={this.onPress}>
         <View style={[styles.container, containerStyle, { width, height, borderRadius }]}>
           <Text style={[styles.counterText, textStyle, { fontSize }]}>{textForCluster}</Text>
         </View>
-      </Marker>
+      </MapView.Marker>
     )
   }
 }
